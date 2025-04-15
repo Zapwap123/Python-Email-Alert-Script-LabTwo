@@ -17,6 +17,7 @@ load_dotenv()
 
 EMAIL_ADDRESS = os.getenv("GMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("GMAIL_PASSWORD")
+Email_ADDRESS_RECEIVER = os.getenv("GMAIL_ADDRESS_RECEIVER")
 
 # Define system time
 current_time = time.localtime()
@@ -27,11 +28,12 @@ CPU_THRESHOLD = 2
 RAM_THRESHOLD = 10
 DISK_THRESHOLD = 50 
 
+# Define the function to send email alerts
 def send_alert(subject, message):
     msg = EmailMessage()
     msg["Subject"] = subject
     msg["From"] = EMAIL_ADDRESS
-    msg["To"] = "asethakaaluk418@gmail.com"
+    msg["To"] = Email_ADDRESS_RECEIVER
     msg.set_content(message)
 
     try:
